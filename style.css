@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive, sans-serif;
+    background: linear-gradient(135deg, #0a0a2a 0%, #1a1a3a 100%);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    background-color: rgba(10, 10, 40, 0.8);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 0 30px rgba(0, 150, 255, 0.3);
+    border: 3px solid #00aaff;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px dashed #00aaff;
+}
+
+header h1 {
+    color: #00ffcc;
+    font-size: 2.8rem;
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    color: #aaddff;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0, 20, 40, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border: 2px solid #0088cc;
+}
+
+.stat {
+    text-align: center;
+    padding: 10px;
+}
+
+.stat-label {
+    display: block;
+    color: #aaddff;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    display: block;
+    color: #00ffcc;
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px #00ffcc;
+}
+
+.game-container {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+#gameCanvas {
+    display: block;
+    margin: 0 auto;
+    background-color: #111133;
+    border-radius: 10px;
+    border: 4px solid #0088cc;
+    box-shadow: 0 0 20px rgba(0, 100, 255, 0.5);
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(0, 20, 40, 0.7);
+    border-radius: 10px;
+    border: 2px solid #005588;
+}
+
+.control-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.control-info p {
+    background-color: rgba(0, 50, 100, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.control-info i {
+    margin-right: 8px;
+    color: #00ffcc;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 20px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-start {
+    background-color: #00cc66;
+    color: #003311;
+}
+
+.btn-pause {
+    background-color: #ffaa00;
+    color: #332200;
+}
+
+.btn-reset {
+    background-color: #ff4444;
+    color: #330000;
+}
+
+.powerups {
+    background-color: rgba(0, 20, 40, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border: 2px solid #0088cc;
+}
+
+.powerups h3 {
+    color: #ffaa00;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.powerup-list {
+    display: flex;
+    justify-content: space-around;
+}
+
+.powerup-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.powerup-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+}
+
+.nitro {
+    background-color: #ff4444;
+    border: 3px solid #ff0000;
+}
+
+.shield {
+    background-color: #44aaff;
+    border: 3px solid #0088ff;
+}
+
+.coin {
+    background-color: #ffcc00;
+    border: 3px solid #ffaa00;
+}
+
+footer {
+    text-align: center;
+    padding-top: 15px;
+    border-top: 2px dashed #0088cc;
+    color: #88aadd;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.copyright {
+    margin-top: 10px;
+    color: #5599cc;
+}
+
+/* Modal Game Over */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #0a0a2a;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    border: 4px solid #00ffcc;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 0 30px rgba(0, 255, 204, 0.5);
+}
+
+.modal-content h2 {
+    color: #00ffcc;
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+/* Responsividade */
+@media (max-width: 850px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .game-stats {
+        flex-wrap: wrap;
+    }
+    
+    .stat {
+        flex: 1 0 45%;
+        margin-bottom: 10px;
+    }
+    
+    .controls {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .control-info {
+        width: 100%;
+    }
+    
+    .powerup-list {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    #gameCanvas {
+        width: 100%;
+        height: auto;
+    }
+    
+    .stat {
+        flex: 1 0 100%;
+    }
+}
